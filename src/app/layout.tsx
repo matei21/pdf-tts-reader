@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PDF Reader — Text to Speech",
   description: "Upload a PDF and have it read aloud using browser TTS",
+  other: {
+    "color-scheme": "light only",
+  },
 };
 
 export default function RootLayout({
@@ -26,6 +29,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={{ colorScheme: "light only" }}
     >
       <body className="h-full">{children}</body>
     </html>
