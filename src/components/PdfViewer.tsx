@@ -255,7 +255,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage <= 1}
-            className="px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-40 text-sm"
+            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white disabled:hover:border-gray-300 text-sm font-medium text-gray-700 transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
             Prev
           </button>
@@ -266,14 +266,14 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
               max={totalPages}
               value={currentPage}
               onChange={(e) => goToPage(parseInt(e.target.value) || 1)}
-              className="w-14 text-center border rounded px-1 py-0.5 text-sm"
+              className="w-14 text-center border border-gray-300 rounded px-1 py-0.5 text-sm"
             />{" "}
             / {totalPages}
           </span>
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage >= totalPages}
-            className="px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-40 text-sm"
+            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white disabled:hover:border-gray-300 text-sm font-medium text-gray-700 transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
             Next
           </button>
@@ -283,14 +283,14 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
         <div className="flex items-center gap-1">
           <button
             onClick={() => setScale((s) => Math.max(0.5, s - 0.25))}
-            className="px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 text-sm font-medium text-gray-700 transition-colors cursor-pointer"
           >
             -
           </button>
           <span className="text-sm w-12 text-center">{Math.round(scale * 100)}%</span>
           <button
             onClick={() => setScale((s) => Math.min(3, s + 0.25))}
-            className="px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 text-sm font-medium text-gray-700 transition-colors cursor-pointer"
           >
             +
           </button>
