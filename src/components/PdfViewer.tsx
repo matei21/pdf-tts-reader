@@ -238,7 +238,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
   return (
     <div className="flex flex-col h-screen">
       {/* Top bar */}
-      <div className="sticky top-0 z-20 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-4 flex-wrap shadow-sm">
+      <div className="shrink-0 z-20 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-4 flex-wrap shadow-sm">
         <button
           onClick={onBack}
           className="text-sm px-3 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition-colors"
@@ -298,7 +298,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
       </div>
 
       {/* TTS controls */}
-      <div className="sticky top-[57px] z-20 bg-gray-50 border-b border-gray-200 px-4 py-2 flex items-center gap-4 flex-wrap">
+      <div className="shrink-0 z-20 bg-gray-50 border-b border-gray-200 px-4 py-2 flex items-center gap-4 flex-wrap">
         <button
           onClick={handleReadPage}
           className="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm font-medium transition-colors"
@@ -376,7 +376,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
       </div>
 
       {/* PDF display */}
-      <div className="flex-1 overflow-auto bg-gray-100 flex justify-center py-6">
+      <div className="flex-1 min-h-0 overflow-auto bg-gray-100 flex justify-center py-6">
         <div className="relative inline-block shadow-lg overflow-hidden">
           <canvas ref={canvasRef} className="block" />
           <div
