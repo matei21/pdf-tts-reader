@@ -238,15 +238,15 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
   return (
     <div className="flex flex-col h-screen">
       {/* Top bar */}
-      <div className="shrink-0 z-20 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-4 flex-wrap shadow-sm">
+      <div className="shrink-0 z-20 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center gap-4 flex-wrap shadow-sm">
         <button
           onClick={onBack}
-          className="text-sm px-3 py-1.5 rounded bg-gray-100 hover:bg-gray-200 transition-colors"
+          className="text-sm px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 transition-colors"
         >
           &larr; Back
         </button>
 
-        <span className="text-sm font-medium truncate max-w-[200px]" title={pdfName}>
+        <span className="text-sm font-medium truncate max-w-[200px] text-gray-900 dark:text-gray-100" title={pdfName}>
           {pdfName}
         </span>
 
@@ -255,25 +255,25 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
           <button
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage <= 1}
-            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white disabled:hover:border-gray-300 text-sm font-medium text-gray-700 transition-colors cursor-pointer disabled:cursor-not-allowed"
+            className="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white dark:disabled:hover:bg-gray-700 disabled:hover:border-gray-300 dark:disabled:hover:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
             Prev
           </button>
-          <span className="text-sm tabular-nums">
+          <span className="text-sm tabular-nums text-gray-700 dark:text-gray-200">
             <input
               type="number"
               min={1}
               max={totalPages}
               value={currentPage}
               onChange={(e) => goToPage(parseInt(e.target.value) || 1)}
-              className="w-14 text-center border border-gray-300 rounded px-1 py-0.5 text-sm"
+              className="w-14 text-center border border-gray-300 dark:border-gray-600 rounded px-1 py-0.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />{" "}
             / {totalPages}
           </span>
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage >= totalPages}
-            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white disabled:hover:border-gray-300 text-sm font-medium text-gray-700 transition-colors cursor-pointer disabled:cursor-not-allowed"
+            className="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900 hover:border-blue-400 disabled:opacity-40 disabled:hover:bg-white dark:disabled:hover:bg-gray-700 disabled:hover:border-gray-300 dark:disabled:hover:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors cursor-pointer disabled:cursor-not-allowed"
           >
             Next
           </button>
@@ -283,14 +283,14 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
         <div className="flex items-center gap-1">
           <button
             onClick={() => setScale((s) => Math.max(0.5, s - 0.25))}
-            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 text-sm font-medium text-gray-700 transition-colors cursor-pointer"
+            className="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900 hover:border-blue-400 text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors cursor-pointer"
           >
             -
           </button>
-          <span className="text-sm w-12 text-center">{Math.round(scale * 100)}%</span>
+          <span className="text-sm w-12 text-center text-gray-700 dark:text-gray-200">{Math.round(scale * 100)}%</span>
           <button
             onClick={() => setScale((s) => Math.min(3, s + 0.25))}
-            className="px-2 py-1 rounded border border-gray-300 bg-white hover:bg-blue-50 hover:border-blue-400 text-sm font-medium text-gray-700 transition-colors cursor-pointer"
+            className="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900 hover:border-blue-400 text-sm font-medium text-gray-700 dark:text-gray-200 transition-colors cursor-pointer"
           >
             +
           </button>
@@ -298,7 +298,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
       </div>
 
       {/* TTS controls */}
-      <div className="shrink-0 z-20 bg-gray-50 border-b border-gray-200 px-4 py-2 flex items-center gap-4 flex-wrap">
+      <div className="shrink-0 z-20 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-2 flex items-center gap-4 flex-wrap">
         <button
           onClick={handleReadPage}
           className="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm font-medium transition-colors"
@@ -324,11 +324,11 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
         )}
 
         <div className="flex items-center gap-2">
-          <label className="text-sm text-gray-600">Speed:</label>
+          <label className="text-sm text-gray-600 dark:text-gray-300">Speed:</label>
           <select
             value={speed}
             onChange={(e) => setSpeed(parseFloat(e.target.value) as SpeedOption)}
-            className="border rounded px-2 py-1 text-sm bg-white"
+            className="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             {SPEED_OPTIONS.map((s) => (
               <option key={s} value={s}>
@@ -339,11 +339,11 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
         </div>
 
         <div className="flex items-center gap-2">
-          <label className="text-sm text-gray-600">Voice:</label>
+          <label className="text-sm text-gray-600 dark:text-gray-300">Voice:</label>
           <select
             value={selectedVoice}
             onChange={(e) => setSelectedVoice(e.target.value)}
-            className="border rounded px-2 py-1 text-sm bg-white max-w-[250px]"
+            className="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 max-w-[250px]"
           >
             {(() => {
               const roVoices = voices.filter((v) => v.lang.startsWith("ro"));
@@ -376,7 +376,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
       </div>
 
       {/* PDF display */}
-      <div className="flex-1 min-h-0 overflow-auto bg-gray-100 flex justify-center py-6">
+      <div className="flex-1 min-h-0 overflow-auto bg-gray-100 dark:bg-gray-900 flex justify-center py-6">
         <div className="relative inline-block shadow-lg overflow-hidden">
           <canvas ref={canvasRef} className="block" />
           <div

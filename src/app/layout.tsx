@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "PDF Reader — Text to Speech",
   description: "Upload a PDF and have it read aloud using browser TTS",
   other: {
-    "color-scheme": "light only",
+    "color-scheme": "light dark",
   },
 };
 
@@ -29,9 +29,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      style={{ colorScheme: "light only" }}
     >
-      <body className="h-full">{children}</body>
+      <body className="h-full bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">{children}</body>
     </html>
   );
 }

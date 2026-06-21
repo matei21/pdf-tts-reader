@@ -63,17 +63,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-16 px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center pt-16 px-4">
       <div className="max-w-xl w-full">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">PDF Reader</h1>
-        <p className="text-gray-500 mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">PDF Reader</h1>
+        <p className="text-gray-500 dark:text-gray-400 mb-8">
           Upload a PDF and have it read aloud. Files are stored in your browser.
         </p>
 
         {/* Upload */}
-        <label className="block w-full cursor-pointer border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors mb-8">
-          <div className="text-gray-400 text-4xl mb-2">+</div>
-          <div className="text-sm text-gray-500">
+        <label className="block w-full cursor-pointer border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-8 text-center hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950 transition-colors mb-8">
+          <div className="text-gray-400 dark:text-gray-500 text-4xl mb-2">+</div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">
             {loading ? "Processing..." : "Click to upload a PDF"}
           </div>
           <input
@@ -89,27 +89,27 @@ export default function Home() {
         {/* Library */}
         {pdfs.length > 0 && (
           <div>
-            <h2 className="text-lg font-semibold text-gray-700 mb-3">Your PDFs</h2>
+            <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-3">Your PDFs</h2>
             <div className="space-y-2">
               {pdfs
                 .sort((a, b) => b.storedAt - a.storedAt)
                 .map((pdf) => (
                   <div
                     key={pdf.id}
-                    className="flex items-center justify-between bg-white rounded-lg border border-gray-200 px-4 py-3 hover:shadow-sm transition-shadow"
+                    className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3 hover:shadow-sm transition-shadow"
                   >
                     <button
                       onClick={() => handleOpen(pdf.id)}
-                      className="flex-1 text-left truncate text-sm font-medium text-gray-800 hover:text-blue-600"
+                      className="flex-1 text-left truncate text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       {pdf.name}
                     </button>
-                    <span className="text-xs text-gray-400 mx-3 shrink-0">
+                    <span className="text-xs text-gray-400 dark:text-gray-500 mx-3 shrink-0">
                       {new Date(pdf.storedAt).toLocaleDateString()}
                     </span>
                     <button
                       onClick={() => handleDelete(pdf.id, pdf.name)}
-                      className="text-gray-400 hover:text-red-500 text-sm shrink-0"
+                      className="text-gray-400 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-400 text-sm shrink-0"
                     >
                       Delete
                     </button>
