@@ -236,7 +236,7 @@ export default function PdfViewer({ pdfData, pdfName, onBack }: PdfViewerProps) 
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-screen">
       {/* Top bar */}
       <div className="sticky top-0 z-20 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-4 flex-wrap shadow-sm">
         <button
